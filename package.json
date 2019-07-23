@@ -19,7 +19,22 @@
                 "command": "extension.createReactComponent",
                 "title": "Create React Component"
             }
-        ]
+        ],
+        "menus": {
+            "commandPalette": [
+                {
+                    "command": "extension.createReactComponent",
+                    "when": "false"
+                }
+            ],
+            "explorer/context": [
+                {
+                    "when": "explorerResourceIsFolder",
+                    "command": "extension.createReactComponent",
+                    "group": "create-react-component"
+                }
+            ]
+        }
     },
     "scripts": {
         "vscode:prepublish": "npm run compile",
