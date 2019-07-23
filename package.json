@@ -26,15 +26,18 @@
         "compile": "tsc -p ./",
         "watch": "tsc -watch -p ./",
         "pretest": "npm run compile",
-        "test": "node ./out/test/runTest.js"
+        "test:integration": "npm run compile && node ./out/integration-test/runTest.js",
+        "test:unit": "mocha -r ts-node/register 'src/**/*.test.ts' --exclude 'src/integration-test/**/*'"
     },
     "devDependencies": {
+        "@types/chai": "^4.1.7",
         "@types/glob": "^7.1.1",
         "@types/mocha": "^5.2.6",
         "@types/node": "^10.12.21",
         "@types/vscode": "^1.36.0",
         "@typescript-eslint/eslint-plugin": "^1.13.0",
         "@typescript-eslint/parser": "^1.13.0",
+        "chai": "^4.2.0",
         "eslint": "^6.1.0",
         "eslint-config-airbnb": "^17.1.1",
         "eslint-config-prettier": "^6.0.0",
@@ -43,6 +46,7 @@
         "glob": "^7.1.4",
         "mocha": "^6.1.4",
         "prettier": "^1.18.2",
+        "ts-node": "^8.3.0",
         "typescript": "^3.3.1",
         "vscode-test": "^1.0.0-next.0"
     }
