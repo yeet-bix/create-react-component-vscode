@@ -23,6 +23,7 @@ export function activate(context: vscode.ExtensionContext) {
                         `${dir}/${componentName}.test.tsx`,
                         testTemplate({ name: componentName }),
                     );
+                    writeFileSync(`${dir}/index.ts`, testTemplate({ name: componentName }));
                 } else {
                     vscode.window.showErrorMessage('Folder already exists');
                 }

@@ -34,4 +34,6 @@ describe('${name}', () => {
 });
 `;
 
-export { componentTemplate, testTemplate, Options };
+const indexTemplate = ({ name }: Options) => `export { default } from './${name}';`;
+
+export { componentTemplate, testTemplate, indexTemplate, Options };
