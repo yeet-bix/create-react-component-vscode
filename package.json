@@ -49,6 +49,7 @@
         "@types/glob": "^7.1.1",
         "@types/mocha": "^5.2.6",
         "@types/node": "^10.12.21",
+        "@types/sinon": "^7.0.13",
         "@types/vscode": "^1.36.0",
         "@typescript-eslint/eslint-plugin": "^1.13.0",
         "@typescript-eslint/parser": "^1.13.0",
@@ -61,8 +62,10 @@
         "glob": "^7.1.4",
         "mocha": "^6.1.4",
         "prettier": "^1.18.2",
+        "sinon": "^7.3.2",
         "ts-node": "^8.3.0",
         "typescript": "^3.3.1",
         "vscode-test": "^1.0.0-next.0"
-    }
+    },
+    "dependencies": {}
 }
