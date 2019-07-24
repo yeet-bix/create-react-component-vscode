@@ -1,6 +1,6 @@
 import * as vscode from 'vscode';
 import { existsSync, mkdirSync, writeFileSync } from 'fs';
-import { componentTemplate } from './template';
+import { componentTemplate, testTemplate } from './template';
 
 export function activate(context: vscode.ExtensionContext) {
     const disposable = vscode.commands.registerCommand(
@@ -18,6 +18,10 @@ export function activate(context: vscode.ExtensionContext) {
                     writeFileSync(
                         `${dir}/${componentName}.tsx`,
                         componentTemplate({ name: componentName }),
+                    );
+                    writeFileSync(
+                        `${dir}/${componentName}.test.tsx`,
+                        testTemplate({ name: componentName }),
                     );
                 } else {
                     vscode.window.showErrorMessage('Folder already exists');
