@@ -5,6 +5,7 @@ export enum TestLibrary {
 interface TemplateOptions {
     name: string;
     testLibrary: TestLibrary;
+    cleanup: boolean;
 }
 
 export default TemplateOptions;

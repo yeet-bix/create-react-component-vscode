@@ -16,7 +16,11 @@ export function activate(context: vscode.ExtensionContext) {
             const dir = `${uri.path}/${componentName}`;
             const config = vscode.workspace.getConfiguration('createReactComponent');
             const isTypescript = config.get('language') === 'typescript';
-            const options = { name: componentName, testLibrary: <TestLibrary>config.get('testingLibrary') };
+            const options = {
+                name: componentName,
+                testLibrary: <TestLibrary>config.get('testingLibrary'),
+                cleanup: <boolean>config.get('testingLibrary.cleanup'),
+            };
 
             createFolder(dir, vscode.window);
             createFile(

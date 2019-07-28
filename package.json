@@ -64,6 +64,11 @@
                         "Generate tests that use enzyme"
                     ],
                     "description": "Specifies what testing library to use"
+                },
+                "createReactComponent.testingLibrary.cleanup": {
+                    "type": "boolean",
+                    "default": "false",
+                    "description": "Specifies whether or not to generate cleanup when using react-testing-library"
                 }
             }
         }

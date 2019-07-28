@@ -16,16 +16,14 @@ const javascriptTestTemplate = (templateOptions: TemplateOptions) => {
         : reactTestingLibraryTemplate(templateOptions);
 };
 
-const reactTestingLibraryTemplate = ({
-    name,
-}: TemplateOptions) => `import { cleanup, render } from '@testing-library/react';
+const reactTestingLibraryTemplate = ({ name, cleanup }: TemplateOptions) => `import { ${
+    cleanup ? 'cleanup, ' : ''
+}render } from '@testing-library/react';
 import React from 'react';
 import ${name} from './${name}';
 
 describe('${name}', () => {
-    afterEach(cleanup);
-
-    const defaultProps = {};
+    ${cleanup ? 'afterEach(cleanup);\n\t' : ''}const defaultProps = {};
 
     it('should render', () => {
         const props = {...defaultProps};
