@@ -1,4 +1,4 @@
-import TemplateOptions from './templateOptions';
+import TemplateOptions, { TestLibrary } from './templateOptions';
 
 const javascriptComponentTemplate = ({ name }: TemplateOptions) => `import React from 'react';
 
@@ -9,7 +9,16 @@ function ${name}({}) {
 export default ${name};
 `;
 
-const javascriptTestTemplate = ({ name }: TemplateOptions) => `import { cleanup, render } from '@testing-library/react';
+const javascriptTestTemplate = (templateOptions: TemplateOptions) => {
+    const { testLibrary } = templateOptions;
+    return testLibrary === TestLibrary.Enzyme
+        ? enzymeTemplate(templateOptions)
+        : reactTestingLibraryTemplate(templateOptions);
+};
+
+const reactTestingLibraryTemplate = ({
+    name,
+}: TemplateOptions) => `import { cleanup, render } from '@testing-library/react';
 import React from 'react';
 import ${name} from './${name}';
 
@@ -24,6 +33,22 @@ describe('${name}', () => {
 
         expect(asFragment()).toMatchSnapshot();
         expect(queryByText(${name})).toBeTruthy();
+    });
+});
+`;
+
+const enzymeTemplate = ({ name }: TemplateOptions) => `import { shallow } from 'enzyme';
+import React from 'react';
+import ${name} from './${name}';
+
+describe('${name}', () => {
+    const defaultProps: Props = {};
+
+    it('should render', () => {
+        const props = {...defaultProps};
+        const wrapper = shallow(<${name} {...props} />);
+
+        expect(wrapper).toMatchSnapshot();
     });
 });
 `;

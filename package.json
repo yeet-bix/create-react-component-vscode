@@ -51,6 +51,19 @@
                         "Generates component in javascript"
                     ],
                     "description": "Specifies what language to generate the component"
+                },
+                "createReactComponent.testingLibrary": {
+                    "type": "string",
+                    "default": "react-testing-library",
+                    "enum": [
+                        "react-testing-library",
+                        "enzyme"
+                    ],
+                    "enumDescriptions": [
+                        "Generate tests that use react-testing-library",
+                        "Generate tests that use enzyme"
+                    ],
+                    "description": "Specifies what testing library to use"
                 }
             }
         }
