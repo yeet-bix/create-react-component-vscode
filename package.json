@@ -69,6 +69,11 @@
                     "type": "boolean",
                     "default": "false",
                     "description": "Specifies whether or not to generate cleanup when using react-testing-library"
+                },
+                "createReactComponent.createModule": {
+                    "type": "boolean",
+                    "default": "true",
+                    "description": "Specifies whether or not to create the component as a module"
                 }
             }
         }

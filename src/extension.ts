@@ -13,16 +13,23 @@ export function activate(context: vscode.ExtensionContext) {
         });
 
         if (componentName !== undefined && componentName.length > 0) {
-            const dir = `${uri.path}/${componentName}`;
             const config = vscode.workspace.getConfiguration('createReactComponent');
             const isTypescript = config.get('language') === 'typescript';
+
             const options = {
                 name: componentName,
                 testLibrary: <TestLibrary>config.get('testingLibrary'),
                 cleanup: <boolean>config.get('testingLibrary.cleanup'),
             };
 
-            createFolder(dir, vscode.window);
+            const createModule = <boolean>config.get('createModule');
+            const dir = createModule ? `${uri.path}/${componentName}` : uri.path;
+
+            if (createModule) {
+                createFolder(dir, vscode.window);
+                createFile(`${dir}/index.${isTypescript ? 'ts' : 'js'}`, indexTemplate(options), vscode.window);
+            }
+
             createFile(
                 `${dir}/${componentName}.${isTypescript ? 'tsx' : 'jsx'}`,
                 isTypescript ? typescriptComponentTemplate(options) : javascriptComponentTemplate(options),
@@ -33,7 +40,6 @@ export function activate(context: vscode.ExtensionContext) {
                 isTypescript ? typescriptTestTemplate(options) : javascriptTestTemplate(options),
                 vscode.window,
             );
-            createFile(`${dir}/index.${isTypescript ? 'ts' : 'js'}`, indexTemplate(options), vscode.window);
         } else {
             vscode.window.showErrorMessage('Must provide component name');
         }
