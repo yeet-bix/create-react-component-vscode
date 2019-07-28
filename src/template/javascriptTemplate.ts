@@ -1,21 +1,15 @@
-interface Options {
-    name: string;
-}
+import TemplateOptions from './templateOptions';
 
-const componentTemplate = ({ name }: Options) => `import React from 'react';
+const javascriptComponentTemplate = ({ name }: TemplateOptions) => `import React from 'react';
 
-export interface Props {}
-
-function ${name}({ }: Props) {
+function ${name}({}) {
     return <>${name}</>
 };
 
 export default ${name};
 `;
 
-const testTemplate = ({
-    name,
-}: Options) => `import { cleanup, render } from '@testing-library/react';
+const javascriptTestTemplate = ({ name }: TemplateOptions) => `import { cleanup, render } from '@testing-library/react';
 import React from 'react';
 import ${name} from './${name}';
 
@@ -34,6 +28,4 @@ describe('${name}', () => {
 });
 `;
 
-const indexTemplate = ({ name }: Options) => `export { default } from './${name}';`;
-
-export { componentTemplate, testTemplate, indexTemplate, Options };
+export { javascriptComponentTemplate, javascriptTestTemplate };

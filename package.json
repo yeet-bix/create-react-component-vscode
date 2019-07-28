@@ -34,6 +34,25 @@
                     "group": "create-react-component"
                 }
             ]
+        },
+        "configuration": {
+            "type": "object",
+            "title": "Create React Component",
+            "properties": {
+                "createReactComponent.language": {
+                    "type": "string",
+                    "default": "typescript",
+                    "enum": [
+                        "typescript",
+                        "javascript"
+                    ],
+                    "enumDescriptions": [
+                        "Generates component in typescript",
+                        "Generates component in javascript"
+                    ],
+                    "description": "Specifies what language to generate the component"
+                }
+            }
         }
     },
     "scripts": {

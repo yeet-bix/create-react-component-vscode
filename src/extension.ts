@@ -1,6 +1,8 @@
 import * as vscode from 'vscode';
 import { createFolder, createFile } from './file';
-import { componentTemplate, testTemplate, indexTemplate } from './template';
+import { typescriptComponentTemplate, typescriptTestTemplate } from './template/typescriptTemplate';
+import { javascriptComponentTemplate, javascriptTestTemplate } from './template/javascriptTemplate';
+import { indexTemplate } from './template/indexTemplate';
 
 export function activate(context: vscode.ExtensionContext) {
     const disposable = vscode.commands.registerCommand('extension.createReactComponent', async (uri: vscode.Uri) => {
@@ -11,12 +13,22 @@ export function activate(context: vscode.ExtensionContext) {
 
         if (componentName !== undefined && componentName.length > 0) {
             const dir = `${uri.path}/${componentName}`;
+            const config = vscode.workspace.getConfiguration('createReactComponent');
+            const isTypescript = config.get('language') === 'typescript';
             const options = { name: componentName };
 
             createFolder(dir, vscode.window);
-            createFile(`${dir}/${componentName}.tsx`, componentTemplate(options), vscode.window);
-            createFile(`${dir}/${componentName}.test.tsx`, testTemplate(options), vscode.window);
-            createFile(`${dir}/index.ts`, indexTemplate(options), vscode.window);
+            createFile(
+                `${dir}/${componentName}.${isTypescript ? 'tsx' : 'jsx'}`,
+                isTypescript ? typescriptComponentTemplate(options) : javascriptComponentTemplate(options),
+                vscode.window,
+            );
+            createFile(
+                `${dir}/${componentName}.test.${isTypescript ? 'tsx' : 'jsx'}`,
+                isTypescript ? typescriptTestTemplate(options) : javascriptTestTemplate(options),
+                vscode.window,
+            );
+            createFile(`${dir}/index.${isTypescript ? 'ts' : 'js'}`, indexTemplate(options), vscode.window);
         } else {
             vscode.window.showErrorMessage('Must provide component name');
         }
