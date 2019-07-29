@@ -1,14 +1,27 @@
 {
     "name": "create-react-component-vscode",
+    "publisher": "yeet-bix",
     "displayName": "Create React Component",
     "description": "⚛️🔥Generate React Component Boilerplate",
     "version": "0.0.1",
+    "license": "SEE LICENSE IN LICENSE",
     "engines": {
         "vscode": "^1.36.0"
     },
     "categories": [
         "Other"
     ],
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/yeet-bix/create-react-component-vscode.git"
+    },
+    "bugs": {
+        "url": "https://github.com/yeet-bix/create-react-component-vscode/issues",
+        "email": "kiam.letchup@gmail.com"
+    },
+    "homepage": "https://github.com/yeet-bix/create-react-component-vscode/blob/master/README.md",
+    "icon": "images/icon.png",
+    "keywords": ["react", "generate", "component", "boilerplate"],
     "activationEvents": [
         "onCommand:extension.createReactComponent"
     ],
