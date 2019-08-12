@@ -1,2 +1,27 @@
-# create-react-component-vscode
-⚡Generate React Component Boilerplate
+<h2 align="center">
+  ⚛️<br>
+  <b>Create React Component</b><br>
+  <p></p>
+  <img src="https://github.com/yeet-bix/create-react-component-vscode/blob/master/images/demo.gif">
+</h2>
+
+> A simple but powerful vscode extension that removes the hassle of writing annoying boilerplate everytime you want to create component.
+
+### Features
+
+#### Right Click Generate
+
+-   Adds the **Create React Component** command when right clicking any folder. Generates a component based on the current [settings](https://github.com/eamodio/vscode-gitlens/blob/master/CHANGELOG.md 'Open Release Notes').
+
+<br>
+
+---
+
+### Settings
+
+| Name                                          | Description                                                                                                                              |
+| --------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
+| `createReactComponent.language`               | Specifies what language to generate the component <br><br> Options: <br> - `typescript` (_default_) <br> - `javascript`                  |
+| `createReactComponent.testLibrary`            | Specifies what testing library to import <br><br> Options: <br> - `react-testing-library` (_default_) <br> - `enzyme`                    |
+| `createReactComponent.testingLibrary.cleanup` | Specifies whether or not to generate cleanup when using react-testing-library <br><br> Options: <br> - `true` <br> - `false` (_default_) |
+| `createReactComponent.module`                 | Specifies whether or not to create a module <br><br> Options: <br> - `true` (_default_) <br> - `false`                                   |
