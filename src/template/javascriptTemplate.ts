@@ -30,7 +30,7 @@ describe('${name}', () => {
         const { asFragment, queryByText } = render(<${name} {...props} />);
 
         expect(asFragment()).toMatchSnapshot();
-        expect(queryByText(${name})).toBeTruthy();
+        expect(queryByText('${name}')).toBeTruthy();
     });
 });
 `;
