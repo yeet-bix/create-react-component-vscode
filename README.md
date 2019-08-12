@@ -2,7 +2,7 @@
   ⚛️<br>
   <b>Create React Component</b><br>
   <p></p>
-  <img src="https://github.com/yeet-bix/create-react-component-vscode/blob/master/images/demo.gif">
+  <img src="https://raw.githubusercontent.com/yeet-bix/create-react-component-vscode/master/images/demo.gif">
 </h2>
 
 > A simple but powerful vscode extension that removes the hassle of writing annoying boilerplate everytime you want to create component.
