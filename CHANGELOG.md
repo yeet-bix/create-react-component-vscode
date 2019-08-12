@@ -1,5 +1,11 @@
 # Change Log
 
+## [0.0.2] - 2019-08-12
+
+### Fixed
+
+-   Fix broken image url in README so that demo gif can be displayed on the Visual Studio Marketplace
+
 ## [0.0.1] - 2019-08-12
 
 ### Added
