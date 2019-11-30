@@ -1,10 +1,11 @@
-import TemplateOptions, { TestLibrary } from './templateOptions';
+import TemplateOptions, { TestLibrary, FunctionType } from './templateOptions';
 
-const typescriptComponentTemplate = ({ name }: TemplateOptions) => `import React from 'react';
+const typescriptComponentTemplate = ({ name, functionType }: TemplateOptions) => `import React from 'react';
 
 export interface ${name}Props {}
 
-function ${name}({ }: ${name}Props) {
+${functionType === FunctionType.Function && `function ${name}({ }: ${name}Props) {`}
+${functionType === FunctionType.Expression && `const ${name}: React.FunctionComponent<${name}Props> = ({ }) => {`}
     return <>${name}</>
 };
 
