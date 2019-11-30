@@ -18,11 +18,11 @@ export function activate(context: vscode.ExtensionContext) {
 
             const options = {
                 name: componentName,
-                testLibrary: <TestLibrary>config.get('testingLibrary'),
-                cleanup: <boolean>config.get('testingLibrary.cleanup'),
+                testLibrary: config.get('testingLibrary') as TestLibrary,
+                cleanup: config.get('testingLibrary.cleanup') as boolean,
             };
 
-            const createModule = <boolean>config.get('createModule');
+            const createModule = config.get('createModule') as boolean;
             const dir = createModule ? `${uri.path}/${componentName}` : uri.path;
 
             if (createModule) {
