@@ -2,9 +2,9 @@ import TemplateOptions, { TestLibrary } from './templateOptions';
 
 const typescriptComponentTemplate = ({ name }: TemplateOptions) => `import React from 'react';
 
-export interface Props {}
+export interface ${name}Props {}
 
-function ${name}({ }: Props) {
+function ${name}({ }: ${name}Props) {
     return <>${name}</>
 };
 
@@ -22,10 +22,10 @@ const reactTestingLibraryTemplate = ({ name, cleanup }: TemplateOptions) => `imp
     cleanup ? 'cleanup, ' : ''
 }render } from '@testing-library/react';
 import React from 'react';
-import ${name}, { Props } from './${name}';
+import ${name}, { ${name}Props } from './${name}';
 
 describe('${name}', () => {
-    ${cleanup ? 'afterEach(cleanup);\n\t' : ''}const defaultProps: Props = {};
+    ${cleanup ? 'afterEach(cleanup);\n\t' : ''}const defaultProps: ${name}Props = {};
 
     it('should render', () => {
         const props = {...defaultProps};
@@ -39,10 +39,10 @@ describe('${name}', () => {
 
 const enzymeTemplate = ({ name }: TemplateOptions) => `import { shallow } from 'enzyme';
 import React from 'react';
-import ${name}, { Props } from './${name}';
+import ${name}, { ${name}Props } from './${name}';
 
 describe('${name}', () => {
-    const defaultProps: Props = {};
+    const defaultProps: ${name}Props = {};
 
     it('should render', () => {
         const props = {...defaultProps};
