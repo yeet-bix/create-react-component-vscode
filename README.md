@@ -11,7 +11,7 @@
 
 #### Right Click Generate
 
--   Adds the **Create React Component** command when right clicking any folder. Generates a component based on the current [settings](https://github.com/eamodio/vscode-gitlens/blob/master/CHANGELOG.md 'Open Release Notes').
+-   Adds the **Create React Component** command when right clicking any folder. Generates a component based on the current [settings](https://github.com/yeet-bix/create-react-component-vscode/blob/master/README.md#Settings 'Settings').
 
 <br>
 

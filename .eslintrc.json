@@ -1,25 +1,20 @@
 {
-  "parser": "@typescript-eslint/parser",
-  "parserOptions": {
-    "sourceType": "module",
-    "project": "./tsconfig.json"
-  },
-  "extends": [
-    "airbnb",
-    "plugin:@typescript-eslint/recommended",
-    "prettier",
-    "prettier/@typescript-eslint"
-  ],
-  "plugins": ["import", "prettier", "@typescript-eslint"],
-  "rules": {
-    "prettier/prettier": ["error", { "singleQuote": true }]
-  },
-  "settings": {
-    "import/resolver": {
-      "node": {
-        "extensions": [".ts", ".json"]
-      }
+    "parser": "@typescript-eslint/parser",
+    "parserOptions": {
+        "sourceType": "module",
+        "project": "./tsconfig.json"
     },
-    "import/extensions": [".ts"]
-  }
+    "extends": ["airbnb", "plugin:@typescript-eslint/recommended", "prettier", "prettier/@typescript-eslint"],
+    "plugins": ["import", "prettier", "@typescript-eslint"],
+    "rules": {
+        "prettier/prettier": ["error", { "singleQuote": true }]
+    },
+    "settings": {
+        "import/resolver": {
+            "node": {
+                "extensions": [".ts", ".json"]
+            }
+        },
+        "import/extensions": [".ts"]
+    }
 }
