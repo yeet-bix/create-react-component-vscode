@@ -40,7 +40,7 @@ import React from 'react';
 import ${name} from './${name}';
 
 describe('${name}', () => {
-    const defaultProps: Props = {};
+    const defaultProps = {};
 
     it('should render', () => {
         const props = {...defaultProps};

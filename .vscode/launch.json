@@ -8,7 +8,7 @@
             "runtimeExecutable": "${execPath}",
             "args": ["--extensionDevelopmentPath=${workspaceFolder}"],
             "outFiles": ["${workspaceFolder}/out/**/*.js"],
-            "preLaunchTask": "npm: watch"
+            "preLaunchTask": "npm: compile"
         },
         {
             "name": "Extension Tests",
@@ -20,7 +20,7 @@
                 "--extensionTestsPath=${workspaceFolder}/out/integration-test/suite/index"
             ],
             "outFiles": ["${workspaceFolder}/out/integration-test/**/*.js"],
-            "preLaunchTask": "npm: watch"
+            "preLaunchTask": "npm: compile"
         }
     ]
 }
