@@ -92,6 +92,18 @@
                     "type": "boolean",
                     "default": "true",
                     "description": "Specifies whether or not to create the component as a module"
+                },
+                "createReactComponent.functionType": {
+                    "type": "string",
+                    "enum": [
+                        "function",
+                        "expression"
+                    ],
+                    "enumDescriptions": [
+                        "Generate functions",
+                        "Generate function expressions"
+                    ],
+                    "default": "function"
                 }
             }
         }

@@ -3,7 +3,7 @@ import { createFolder, createFile } from './file';
 import { typescriptComponentTemplate, typescriptTestTemplate } from './template/typescriptTemplate';
 import { javascriptComponentTemplate, javascriptTestTemplate } from './template/javascriptTemplate';
 import { indexTemplate } from './template/indexTemplate';
-import TemplateOptions, { TestLibrary } from './template/templateOptions';
+import TemplateOptions, { TestLibrary, FunctionType } from './template/templateOptions';
 
 export function activate(context: vscode.ExtensionContext) {
     const disposable = vscode.commands.registerCommand('extension.createReactComponent', async (uri: vscode.Uri) => {
@@ -20,6 +20,7 @@ export function activate(context: vscode.ExtensionContext) {
                 name: componentName,
                 testLibrary: config.get('testingLibrary') as TestLibrary,
                 cleanup: config.get('testingLibrary.cleanup') as boolean,
+                functionType: config.get('functionType') as FunctionType
             };
 
             const createModule = config.get('createModule') as boolean;

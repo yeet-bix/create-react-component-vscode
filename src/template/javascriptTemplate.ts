@@ -1,8 +1,9 @@
-import TemplateOptions, { TestLibrary } from './templateOptions';
+import TemplateOptions, { TestLibrary, FunctionType } from './templateOptions';
 
-const javascriptComponentTemplate = ({ name }: TemplateOptions) => `import React from 'react';
+const javascriptComponentTemplate = ({ name, functionType }: TemplateOptions) => `import React from 'react';
 
-function ${name}({}) {
+${functionType === FunctionType.Function ? `function ${name}({}) {` : ''}
+${functionType === FunctionType.Expression ? `const ${name} = ({}) => {` : ''}
     return <>${name}</>
 };
 
