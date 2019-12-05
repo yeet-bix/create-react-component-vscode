@@ -113,8 +113,16 @@
                             "component",
                             "test",
                             "index"
+                        ],
+                        "enumDescriptions": [
+                            "Open component file",
+                            "Open test file",
+                            "Open index file"
                         ]
-                    }
+                    },
+                    "default": [
+                        "component"
+                    ]
                 }
             }
         }
