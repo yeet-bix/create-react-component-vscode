@@ -8,6 +8,12 @@ export enum FunctionType {
     Expression = "expression"
 }
 
+export enum FileType {
+    Component = "component",
+    Test = "test",
+    Index = "index"
+}
+
 interface TemplateOptions {
     name: string;
     testLibrary: TestLibrary;

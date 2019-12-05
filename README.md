@@ -19,10 +19,11 @@
 
 ### Settings
 
-| Name                                          | Description                                                                                                                              |
-| --------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
-| `createReactComponent.language`               | Specifies what language to generate the component <br><br> Options: <br> - `typescript` (_default_) <br> - `javascript`                  |
-| `createReactComponent.testLibrary`            | Specifies what testing library to import <br><br> Options: <br> - `react-testing-library` (_default_) <br> - `enzyme`                    |
-| `createReactComponent.testingLibrary.cleanup` | Specifies whether or not to generate cleanup when using react-testing-library <br><br> Options: <br> - `true` <br> - `false` (_default_) |
-| `createReactComponent.module`                 | Specifies whether or not to create a module <br><br> Options: <br> - `true` (_default_) <br> - `false`                                   |
-| `createReactComponent.functionType`           | Specifies whether to use a normal function or function expression for the component <br><br> Options <br> - `function` (default) <br> - `expression` |
+| Name                                          | Description                                                                                                                                                                         |
+| --------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `createReactComponent.language`               | Specifies what language to generate the component <br><br> Options: <br> - `typescript` (_default_) <br> - `javascript`                                                             |
+| `createReactComponent.testLibrary`            | Specifies what testing library to import <br><br> Options: <br> - `react-testing-library` (_default_) <br> - `enzyme`                                                               |
+| `createReactComponent.testingLibrary.cleanup` | Specifies whether or not to generate cleanup when using react-testing-library <br><br> Options: <br> - `true` <br> - `false` (_default_)                                            |
+| `createReactComponent.module`                 | Specifies whether or not to create a module <br><br> Options: <br> - `true` (_default_) <br> - `false`                                                                              |
+| `createReactComponent.functionType`           | Specifies whether to use a normal function or function expression for the component <br><br> Options: <br> - `function` (default) <br> - `expression`                               |
+| `createReactComponent.openFiles`              | Specifies what files to open after generating the component <br><br> File Types: <br> - `component` <br> - `test` <br> - `index` <br><br> Options: <br> - `['component']` (default) |
