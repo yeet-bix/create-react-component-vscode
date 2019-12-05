@@ -104,6 +104,17 @@
                         "Generate function expressions"
                     ],
                     "default": "function"
+                },
+                "createReactComponent.openFiles": {
+                    "type": "array",
+                    "items": {
+                        "type": "string",
+                        "enum": [
+                            "component",
+                            "test",
+                            "index"
+                        ]
+                    }
                 }
             }
         }

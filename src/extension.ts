@@ -3,7 +3,7 @@ import { createFolder, createFile } from './file';
 import { typescriptComponentTemplate, typescriptTestTemplate } from './template/typescriptTemplate';
 import { javascriptComponentTemplate, javascriptTestTemplate } from './template/javascriptTemplate';
 import { indexTemplate } from './template/indexTemplate';
-import TemplateOptions, { TestLibrary, FunctionType } from './template/templateOptions';
+import TemplateOptions, { TestLibrary, FunctionType, FileType } from './template/templateOptions';
 
 export function activate(context: vscode.ExtensionContext) {
     const disposable = vscode.commands.registerCommand('extension.createReactComponent', async (uri: vscode.Uri) => {
@@ -25,22 +25,43 @@ export function activate(context: vscode.ExtensionContext) {
 
             const createModule = config.get('createModule') as boolean;
             const dir = createModule ? `${uri.path}/${componentName}` : uri.path;
+            const indexUri = `${dir}/index.${isTypescript ? 'ts' : 'js'}`;
+            const componentUri = `${dir}/${componentName}.${isTypescript ? 'tsx' : 'jsx'}`;
+            const testUri = `${dir}/${componentName}.test.${isTypescript ? 'tsx' : 'jsx'}`;
 
             if (createModule) {
                 createFolder(dir, vscode.window);
-                createFile(`${dir}/index.${isTypescript ? 'ts' : 'js'}`, indexTemplate(options), vscode.window);
+                createFile(indexUri, indexTemplate(options), vscode.window);
             }
 
             createFile(
-                `${dir}/${componentName}.${isTypescript ? 'tsx' : 'jsx'}`,
+                componentUri,
                 isTypescript ? typescriptComponentTemplate(options) : javascriptComponentTemplate(options),
                 vscode.window,
             );
             createFile(
-                `${dir}/${componentName}.test.${isTypescript ? 'tsx' : 'jsx'}`,
+                testUri,
                 isTypescript ? typescriptTestTemplate(options) : javascriptTestTemplate(options),
                 vscode.window,
             );
+
+            const openFiles = config.get('openFiles') as FileType[];
+            const textDocumentShowOptions: vscode.TextDocumentShowOptions = {
+                preserveFocus: false,
+                preview: false
+            }
+            if (openFiles.includes("component" as FileType)) {
+                const document = await vscode.workspace.openTextDocument(componentUri);
+                await vscode.window.showTextDocument(document, textDocumentShowOptions);
+            }
+            if (openFiles.includes("test" as FileType)) {
+                const document = await vscode.workspace.openTextDocument(testUri);
+                await vscode.window.showTextDocument(document, textDocumentShowOptions);
+            }
+            if (openFiles.includes("index" as FileType)) {
+                const document = await vscode.workspace.openTextDocument(indexUri);
+                await vscode.window.showTextDocument(document, textDocumentShowOptions);
+            }
         } else {
             vscode.window.showErrorMessage('Must provide component name');
         }
@@ -49,4 +70,4 @@ export function activate(context: vscode.ExtensionContext) {
     context.subscriptions.push(disposable);
 }
 
-export function deactivate() {}
+export function deactivate() { }
