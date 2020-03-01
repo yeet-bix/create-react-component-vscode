@@ -103,7 +103,8 @@
                         "Generate functions",
                         "Generate function expressions"
                     ],
-                    "default": "function"
+                    "default": "function",
+                    "description": "Specifies whether to use a normal function or function expression for the component"
                 },
                 "createReactComponent.openFiles": {
                     "type": "array",
@@ -122,7 +123,8 @@
                     },
                     "default": [
                         "component"
-                    ]
+                    ],
+                    "description": "Specifies what files to open after generating the component"
                 }
             }
         }
