@@ -1,5 +1,23 @@
 # Change Log
 
+## [0.1.0] - 2020-03-02
+
+### Added
+
+-   Allow user to specify whether or not to generate a function or function expression via [setting](https://github.com/yeet-bix/create-react-component-vscode#settings)
+-   Allow user to specify files to open after generating a component via [setting](https://github.com/yeet-bix/create-react-component-vscode#settings)
+-   Props are now exported from modules by default
+
+### Changed
+
+-   Props are now prefixed with the component name
+
+### Fixed
+
+-   Fix broken link in README that redirected to another repos settings
+-   Fix missing newline generated in index files
+-   Fixed launch config for local testing
+
 ## [0.0.2] - 2019-08-12
 
 ### Fixed
