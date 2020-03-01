@@ -5,7 +5,7 @@ const typescriptComponentTemplate = ({ name, functionType }: TemplateOptions) =>
 export interface ${name}Props {}
 
 ${functionType === FunctionType.Function ? `function ${name}({ }: ${name}Props) {` : ''}${functionType === FunctionType.Expression ? `const ${name}: React.FunctionComponent<${name}Props> = ({ }) => {` : ''}
-    return <>${name}</>
+    return <>${name}</>;
 };
 
 export default ${name};
@@ -28,7 +28,7 @@ describe('${name}', () => {
     ${cleanup ? 'afterEach(cleanup);\n\t' : ''}const defaultProps: ${name}Props = {};
 
     it('should render', () => {
-        const props = {...defaultProps};
+        const props = { ...defaultProps };
         const { asFragment, queryByText } = render(<${name} {...props} />);
 
         expect(asFragment()).toMatchSnapshot();
