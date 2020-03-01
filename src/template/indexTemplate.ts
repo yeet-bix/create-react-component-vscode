@@ -1,3 +1,5 @@
 import TemplateOptions from './templateOptions';
 
-export const indexTemplate = ({ name }: TemplateOptions) => `export { default } from './${name}';`;
+export const indexTemplate = ({ name }: TemplateOptions) => `export { default } from './${name}';
+export * from './${name}'
+`;
