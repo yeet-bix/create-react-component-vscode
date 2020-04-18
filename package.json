@@ -3,7 +3,7 @@
     "publisher": "yeet-bix",
     "displayName": "Create React Component",
     "description": "⚛️⚡Generate React Component Boilerplate",
-    "version": "0.1.1",
+    "version": "0.2.0",
     "license": "SEE LICENSE IN LICENSE",
     "engines": {
         "vscode": "^1.36.0"
@@ -87,6 +87,15 @@
                     "type": "boolean",
                     "default": "false",
                     "description": "Specifies whether or not to generate cleanup when using react-testing-library"
+                },
+                "createReactComponent.fileExtension": {
+                    "type": "string",
+                    "enum": [
+                        "withX",
+                        "withoutX"
+                    ],
+                    "default": "withX",
+                    "description": "Specifies the extension type of files: .ie 'withX' would create 'MyComponent.tsx' or 'MyComponent.jsx'. 'withoutX' would create 'MyComponent.ts' or 'MyComponent.js' files"
                 },
                 "createReactComponent.createModule": {
                     "type": "boolean",
