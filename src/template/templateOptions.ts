@@ -15,8 +15,8 @@ export enum FileType {
 }
 
 export enum FileExtension {
-    Tsx = "withX",
-    Ts = "withoutX",
+    WithX = "withX",
+    WithoutX = "withoutX",
 }
 
 interface TemplateOptions {
