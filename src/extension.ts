@@ -3,7 +3,7 @@ import { createFolder, createFile } from './file';
 import { typescriptComponentTemplate, typescriptTestTemplate } from './template/typescriptTemplate';
 import { javascriptComponentTemplate, javascriptTestTemplate } from './template/javascriptTemplate';
 import { indexTemplate } from './template/indexTemplate';
-import TemplateOptions, { TestLibrary, FunctionType, FileType } from './template/templateOptions';
+import TemplateOptions, { TestLibrary, FunctionType, FileType, FileExtension } from './template/templateOptions';
 
 export function activate(context: vscode.ExtensionContext) {
     const disposable = vscode.commands.registerCommand('extension.createReactComponent', async (uri: vscode.Uri) => {
@@ -20,14 +20,18 @@ export function activate(context: vscode.ExtensionContext) {
                 name: componentName,
                 testLibrary: config.get('testingLibrary') as TestLibrary,
                 cleanup: config.get('testingLibrary.cleanup') as boolean,
-                functionType: config.get('functionType') as FunctionType
+                functionType: config.get('functionType') as FunctionType,
+                fileExtension: config.get('fileExtension') as FileExtension
             };
-
             const createModule = config.get('createModule') as boolean;
             const dir = createModule ? `${uri.path}/${componentName}` : uri.path;
             const indexUri = `${dir}/index.${isTypescript ? 'ts' : 'js'}`;
-            const componentUri = `${dir}/${componentName}.${isTypescript ? 'tsx' : 'jsx'}`;
-            const testUri = `${dir}/${componentName}.test.${isTypescript ? 'tsx' : 'jsx'}`;
+            const isWithX = options.fileExtension  === "withX"
+            const typescriptFileExtension = isWithX ? 'tsx' : 'ts';
+            const javascriptFileExtension = isWithX ? 'jsx' : 'js' ;
+            const fileExtension = isTypescript ? typescriptFileExtension : javascriptFileExtension;
+            const componentUri = `${dir}/${componentName}.${fileExtension}`;
+            const testUri = `${dir}/${componentName}.test.${fileExtension}`;
 
             if (createModule) {
                 createFolder(dir, vscode.window);

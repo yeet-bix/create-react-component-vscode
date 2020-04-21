@@ -14,11 +14,17 @@ export enum FileType {
     Index = "index"
 }
 
+export enum FileExtension {
+    WithX = "withX",
+    WithoutX = "withoutX",
+}
+
 interface TemplateOptions {
     name: string;
     testLibrary: TestLibrary;
     cleanup: boolean;
     functionType: FunctionType;
+    fileExtension: FileExtension;
 }
 
 export default TemplateOptions;
