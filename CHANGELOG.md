@@ -1,5 +1,11 @@
 # Change Log
 
+## [0.2.0] - 2020-07-08
+
+### Added
+
+-   Allow user to specify the extension type of files via [setting](https://github.com/yeet-bix/create-react-component-vscode#settings)
+
 ## [0.1.1] - 2020-03-02
 
 ### Fixed
